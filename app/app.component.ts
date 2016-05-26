@@ -1,17 +1,22 @@
+
+
 import {Component} from '@angular/core';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
+
 import {LoginFormComponent} from './login-form.component';
 
 @Component({
     selector: 'my-app', 
-    template: '<login-form></login-form><router-outlet></router-outlet>', 
-    directives: [LoginFormComponent]
+    template: '<router-outlet></router-outlet>', 
+    directives: [LoginFormComponent,LoginFormComponent],
+	providers: [
+	  ROUTER_PROVIDERS
+	]
 })
 
 
-@RouteCoufig([
-{path:'/crisis-center',name:'CrisisCenter',component:CrisisListComponent},   
-{path:'/heroes',name:'Heros',component:HeroListComponent},   
-{path:'/hero/:id',name:'HeroDetail',component:HeroDetailComponent}   
+@RouteConfig([
+{path:'/login',name:'login',component:LoginFormComponent, useAsDefault: true}
 ])
 
 
